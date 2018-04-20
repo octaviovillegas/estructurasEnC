@@ -1,4 +1,5 @@
 #define LARGO_NOMBRE_ALUMNO 50
+#define CANT_ALUMNOS 5
 
 typedef struct
 {

@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1524260744 source:c:\test\mponti\github\estructurasenc\ejemplostructuras\funciones_generales.c
+	<stdio.h>
+	<stdlib.h>
+
+1524260911 source:c:\test\mponti\github\estructurasenc\ejemplostructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estructuras.h"
+	"funciones_generales.h"
+	"procesamiento.h"
+
+1524257083 c:\test\mponti\github\estructurasenc\ejemplostructuras\estructuras.h
+
+1524260698 c:\test\mponti\github\estructurasenc\ejemplostructuras\funciones_generales.h
+
+1524260555 c:\test\mponti\github\estructurasenc\ejemplostructuras\procesamiento.h
+
+1524260904 source:c:\test\mponti\github\estructurasenc\ejemplostructuras\procesamiento.c
+	<stdio.h>
+	<stdlib.h>
+	"estructuras.h"
+	"funciones_generales.h"
+
