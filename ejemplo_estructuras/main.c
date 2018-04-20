@@ -14,7 +14,7 @@ typedef struct
 
 int main()
 {
-
+    eAlumnos listadoDeAlumos;
 
 
     return 0;
