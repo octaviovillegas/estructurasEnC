@@ -75,3 +75,24 @@ int buscarAlumno(eAlumno alumnoBuscar, eAlumno listadoAlumnos[])
 
     return retorno;
 }
+
+void ordenarPorPromedio(eAlumno listadoAlumnos[])
+{
+    int i;
+    int j;
+    eAlumno aux;
+
+    for(i=0 ; i<CANT_ALUMNOS-1 ; i++)
+    {
+        for(j=i+1 ; j<CANT_ALUMNOS ; j++)
+        {
+            if(listadoAlumnos[i].promedio < listadoAlumnos[j].promedio)
+            {
+                aux = listadoAlumnos[i];
+                listadoAlumnos[i] = listadoAlumnos[j];
+                listadoAlumnos[j] = aux;
+            }
+        }
+    }
+
+}

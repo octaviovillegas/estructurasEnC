@@ -10,18 +10,30 @@ int main()
     eAlumno listadoAlumnos[CANT_ALUMNOS] = {};
     eAlumno alumno;
     int posicion;
+    char salirDelPrograma = 'N';
 
-    alumno = pedirAlumno();
-
-    posicion = buscarLugarLibre(listadoAlumnos);
-    if(posicion != -1)
+    do
     {
-        listadoAlumnos[posicion] = alumno;
+        alumno = pedirAlumno();
+
+        posicion = buscarLugarLibre(listadoAlumnos);
+        if(posicion != -1)
+        {
+            listadoAlumnos[posicion] = alumno;
+        }
+
+        ejecutarEnConsola(LIMPIAR_PANTALLA);
+        printf("\nANTES DE ORDENAR:");
+        mostrarListadoAlumnos(listadoAlumnos);
+
+        ordenarPorPromedio(listadoAlumnos);
+        printf("\n\nDESPUES DE ORDENAR:");
+        mostrarListadoAlumnos(listadoAlumnos);
+        ejecutarEnConsola(HACER_PAUSA);
+
+        salirDelPrograma = pedirConfirmacion("Desea salir del programa?");
     }
-
-    mostrarListadoAlumnos(listadoAlumnos);
-
-    ejecutarEnConsola(HACER_PAUSA);
+    while(salirDelPrograma == 'N');
 
     return 0;
 }

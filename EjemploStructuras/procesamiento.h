@@ -41,3 +41,12 @@ int buscarLugarLibre(eAlumno[]);
  *
  */
 int buscarAlumno(eAlumno, eAlumno[]);
+
+
+/** \brief recibe un array de datos tipo alumno y lo ordena descendente por el campo promedio
+ *
+ * \param [] eAlumno: el array de alumnos
+ * \return void
+ *
+ */
+void ordenarPorPromedio(eAlumno []);
