@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "estructuras.h"
+#define CANT_ALUMNOS 5
 
 int main()
 {
-    printf("Hello world!\n");
+    eAlumno listadoAlumnos[CANT_ALUMNOS];
     return 0;
 }
