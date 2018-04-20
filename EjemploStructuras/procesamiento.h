@@ -31,3 +31,13 @@ eAlumno pedirAlumno();
  *
  */
 int buscarLugarLibre(eAlumno[]);
+
+
+/** \brief busca un alumno en un array tipo alumno
+ *
+ * \param eAlumno: el dato tipo alumno a buscar
+ * \param eAlumno[]: el array de alumnos
+ * \return int: la posicion del alumno buscado. -1 en caso de no encontrarlo
+ *
+ */
+int buscarAlumno(eAlumno, eAlumno[]);

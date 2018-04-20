@@ -9,12 +9,17 @@ int main()
 {
     eAlumno listadoAlumnos[CANT_ALUMNOS] = {};
     eAlumno alumno;
+    int posicion;
 
     alumno = pedirAlumno();
 
-    mostrarAlumno(alumno);
+    posicion = buscarLugarLibre(listadoAlumnos);
+    if(posicion != -1)
+    {
+        listadoAlumnos[posicion] = alumno;
+    }
 
-    printf("\nEl primer lugar libre es: %d", buscarLugarLibre(listadoAlumnos));
+    mostrarListadoAlumnos(listadoAlumnos);
 
     ejecutarEnConsola(HACER_PAUSA);
 

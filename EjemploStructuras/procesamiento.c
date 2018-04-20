@@ -8,6 +8,19 @@ void mostrarAlumno(const eAlumno alumno)
     printf("\nLegajo: %d - %s - nota1: %d - nota2: %d - promedio: %.2f", alumno.legajo, alumno.nombre, alumno.nota1, alumno.nota2, alumno.promedio);
 }
 
+void mostrarListadoAlumnos(const eAlumno listadoAlumnos[])
+{
+    int i;
+
+    for(i=0 ; i<CANT_ALUMNOS ; i++)
+    {
+        if(listadoAlumnos[i].estado == 1)
+        {
+            mostrarAlumno(listadoAlumnos[i]);
+        }
+    }
+}
+
 eAlumno pedirAlumno()
 {
     eAlumno retorno;
@@ -24,6 +37,8 @@ eAlumno pedirAlumno()
 
     retorno.promedio = calcularPromedio(retorno.nota1, retorno.nota2);
 
+    retorno.estado = 1;
+
     return retorno;
 }
 
@@ -34,7 +49,24 @@ int buscarLugarLibre(eAlumno listadoAlumnos[])
 
     for(i=0 ; i<CANT_ALUMNOS ; i++)
     {
-        if(listadoAlumnos[i].legajo == 0)
+        if(listadoAlumnos[i].estado == 0)
+        {
+            retorno = i;
+            break;
+        }
+    }
+
+    return retorno;
+}
+
+int buscarAlumno(eAlumno alumnoBuscar, eAlumno listadoAlumnos[])
+{
+    int retorno = -1;
+    int i;
+
+    for(i=0 ; i<CANT_ALUMNOS ; i++)
+    {
+        if(listadoAlumnos[i].legajo == alumnoBuscar.legajo)
         {
             retorno = i;
             break;
