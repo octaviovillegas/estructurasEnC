@@ -9,10 +9,10 @@ typedef struct
     int notaDos;
     float promedio;
     char nombre[50];
-}
+}Alumno;
 
 int main()
 {
-    printf("Hello world!\n");
+    Alumno listadoAlumnos[5];
     return 0;
 }
