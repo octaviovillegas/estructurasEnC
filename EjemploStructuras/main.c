@@ -7,12 +7,14 @@
 
 int main()
 {
-    //eAlumno listadoAlumnos[CANT_ALUMNOS];
+    eAlumno listadoAlumnos[CANT_ALUMNOS] = {};
     eAlumno alumno;
 
     alumno = pedirAlumno();
 
     mostrarAlumno(alumno);
+
+    printf("\nEl primer lugar libre es: %d", buscarLugarLibre(listadoAlumnos));
 
     ejecutarEnConsola(HACER_PAUSA);
 
