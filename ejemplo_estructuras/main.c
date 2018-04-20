@@ -12,14 +12,6 @@ typedef struct
     int estado;
     int i;
 
-    eAlumnno listadoDelMain[TAM];
-
-    for(i=0; i<TAM ;i++)
-    {
-        listadoDelMain[i].estado=0;
-    }//esto sirve para buscar el lugar libre
-
-
 
 }eAlumnos;
 
@@ -27,26 +19,15 @@ void pedirAlumno ();
 
 int main()
 {
+    eAlumnos alumno;
     eAlumnos listadoDeAlumos;
 
-    listadoDeAlumos.legajo;
-    listadoDeAlumos.notaUno;
-    listadoDeAlumos.notaDos;
-    listadoDeAlumos.promedio;
-    listadoDeAlumos.nombre;
-    listadoDeAlumos.estado;
-
-
-    modificarAlumno()
+    int i;
+    eAlumnos listadoDelMain[TAM];
+    for(i=0; i<TAM ;i++)
     {
-
-    }
-
-    borrarAlumno()
-    {
-
-    }
-
+        listadoDelMain[i].estado=0;
+    }//esto sirve para buscar el lugar libre
 
 
     return 0;
@@ -57,12 +38,12 @@ void mostrarAlumnos(eAlumnos listadoDeAlumos[])
 
 }
 
-void mostrarUnAlumno(alumno)
+void mostrarUnAlumno(alumno, promedio)
 {
-    printf()
+    printf("\nLegajo: %d\nNombre: %s\nNota: %d\nNota dos: \nPromedio: %f\n", alumno.legajo, alumno.nombre, alumno.notaUno, alumno.notaDos, promedio);
 }
 
-odenarPorPromedio(eAlumnos listadoDeAlumos[])
+odenarPorPromedio(eAlumnos listadoDeAlumos[], int cantidad)
 {
 
 }
@@ -84,7 +65,12 @@ int buscarLugarLibre (eAlumnos listadoDeAlumos[], int tam)
     return indice;
 }
 
-int buscarAlumno (eAlumnos listadoDeAlumos[], alumno)
+int buscarIndiceDelAlumno (eAlumnos listadoDeAlumos[], int legajo, int cantidad)
+{
+
+}
+
+int insertarAlumnoEnLaLista(eAlumnos[])
 {
 
 }
@@ -106,7 +92,7 @@ alumno pedirAlumno (void)
     return alumno;
 }
 
-float calcularPromedio(int notaUno, int notaDos)
+float calcularPromedio(int alumno.notaUno, int alumno.notaDos)
 {
     promedio= ((notaUno + notaDos)/2.0);
 
@@ -117,3 +103,16 @@ int insertarEnLaLista(eAlumnos listadoDeAlumos[], indice, alumno)
 {
 
 }
+
+modificarAlumno()
+{
+
+}
+
+borrarAlumno()
+{
+
+}
+
+
+
