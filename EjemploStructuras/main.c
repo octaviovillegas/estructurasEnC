@@ -28,8 +28,7 @@ int main()
         switch(opcion)
         {
             case 1:
-                escribirEnPantalla("procesarAlta(listadoAlumnos)");
-                ejecutarEnConsola(HACER_PAUSA);
+                procesarAlta(listadoAlumnos);
                 break;
             case 2:
                 escribirEnPantalla("procesarBaja(listadoAlumnos)");
@@ -40,9 +39,7 @@ int main()
                 ejecutarEnConsola(HACER_PAUSA);
                 break;
             case 4:
-                escribirEnPantalla("LISTADO DE ALUMNOS");
-                mostrarListadoAlumnos(listadoAlumnos);
-                ejecutarEnConsola(HACER_PAUSA);
+                procesarMostrarListado(listadoAlumnos);
                 break;
             case 9:
                 salirDelPrograma = pedirConfirmacion("Desea salir del programa?");

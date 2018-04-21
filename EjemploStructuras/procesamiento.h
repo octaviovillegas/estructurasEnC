@@ -50,3 +50,21 @@ int buscarAlumno(eAlumno, eAlumno[]);
  *
  */
 void ordenarPorPromedio(eAlumno []);
+
+
+/** \brief se encarga de toda la logica de dar de alta un alumno y guardarlo en el array recibido por parametro
+ *
+ * \param listadoAlumnos[] eAlumno: array de alumnos
+ * \return void
+ *
+ */
+void procesarAlta(eAlumno[]);
+
+
+/** \brief se encarga de toda la logica de mostrar el listado de alumnos recibido por parametro
+ *
+ * \param listadoAlumnos[] eAlumno: array de alumnos
+ * \return void
+ *
+ */
+void procesarMostrarListado(eAlumno[]);

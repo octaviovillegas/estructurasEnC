@@ -5,7 +5,7 @@
 
 void mostrarAlumno(const eAlumno alumno)
 {
-    printf("\nLegajo: %d - %s - nota1: %d - nota2: %d - promedio: %.2f", alumno.legajo, alumno.nombre, alumno.nota1, alumno.nota2, alumno.promedio);
+    printf("\nLegajo: %4d | %-20s | nota1: %d | nota2: %d | promedio: %.2f", alumno.legajo, alumno.nombre, alumno.nota1, alumno.nota2, alumno.promedio);
 }
 
 void mostrarListadoAlumnos(const eAlumno listadoAlumnos[])
@@ -27,11 +27,11 @@ eAlumno pedirAlumno()
 
     retorno.legajo = pedirInt("\nIngrese legajo:");
 
-    pedirString(&(*retorno.nombre), "\nIngrese nombre:");
+    pedirString(&(*retorno.nombre), "Ingrese nombre:");
 
-    retorno.nota1 = pedirInt("\nIngrese nota1:");
+    retorno.nota1 = pedirInt("Ingrese nota1:");
 
-    retorno.nota2 = pedirInt("\nIngrese nota2:");
+    retorno.nota2 = pedirInt("Ingrese nota2:");
 
     retorno.promedio = calcularPromedio(retorno.nota1, retorno.nota2);
 
@@ -126,5 +126,13 @@ void procesarAlta(eAlumno listadoAlumnos[])
     {
         escribirEnPantalla("\nNo hay m s lugares disponibles para altas de alumnos.");
     }
+    ejecutarEnConsola(HACER_PAUSA);
+}
+
+void procesarMostrarListado(eAlumno listadoAlumnos[])
+{
+    ejecutarEnConsola(LIMPIAR_PANTALLA);
+    escribirEnPantalla("LISTADO DE ALUMNOS");
+    mostrarListadoAlumnos(listadoAlumnos);
     ejecutarEnConsola(HACER_PAUSA);
 }
