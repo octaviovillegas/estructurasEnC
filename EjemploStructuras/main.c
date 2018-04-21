@@ -29,14 +29,18 @@ int main()
         {
             case 1:
                 escribirEnPantalla("procesarAlta(listadoAlumnos)");
+                ejecutarEnConsola(HACER_PAUSA);
                 break;
             case 2:
                 escribirEnPantalla("procesarBaja(listadoAlumnos)");
+                ejecutarEnConsola(HACER_PAUSA);
                 break;
             case 3:
                 escribirEnPantalla("procesarModificacion(listadoAlumnos)");
+                ejecutarEnConsola(HACER_PAUSA);
                 break;
             case 4:
+                escribirEnPantalla("LISTADO DE ALUMNOS");
                 mostrarListadoAlumnos(listadoAlumnos);
                 ejecutarEnConsola(HACER_PAUSA);
                 break;
