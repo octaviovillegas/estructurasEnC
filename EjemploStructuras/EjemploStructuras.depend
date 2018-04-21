@@ -22,7 +22,7 @@
 	"estructuras.h"
 	"funciones_generales.h"
 
-1524331433 source:c:\projects\estructurasenc\ejemplostructuras\main.c
+1524332854 source:c:\projects\estructurasenc\ejemplostructuras\main.c
 	<stdio.h>
 	<stdlib.h>
 	"estructuras.h"
@@ -30,24 +30,25 @@
 	"procesamiento.h"
 	"menus.h"
 
-1524329425 c:\projects\estructurasenc\ejemplostructuras\estructuras.h
+1524332957 c:\projects\estructurasenc\ejemplostructuras\estructuras.h
 
 1524330258 c:\projects\estructurasenc\ejemplostructuras\funciones_generales.h
 
-1524327463 c:\projects\estructurasenc\ejemplostructuras\procesamiento.h
+1524331878 c:\projects\estructurasenc\ejemplostructuras\procesamiento.h
 
-1524330269 source:c:\projects\estructurasenc\ejemplostructuras\funciones_generales.c
+1524333468 source:c:\projects\estructurasenc\ejemplostructuras\funciones_generales.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 
 1524330519 c:\projects\estructurasenc\ejemplostructuras\menus.h
 
-1524328541 source:c:\projects\estructurasenc\ejemplostructuras\menus.c
+1524332969 source:c:\projects\estructurasenc\ejemplostructuras\menus.c
 	<stdio.h>
 	"estructuras.h"
 	"funciones_generales.h"
 
-1524331891 source:c:\projects\estructurasenc\ejemplostructuras\procesamiento.c
+1524333154 source:c:\projects\estructurasenc\ejemplostructuras\procesamiento.c
 	<stdio.h>
 	<stdlib.h>
 	"estructuras.h"

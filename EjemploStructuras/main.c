@@ -14,7 +14,12 @@
 
 int main()
 {
-    eMenu menuPrincipal = {5,{1,2,3,4,9},{"1. Alta","2. Baja","3. Modificaciàn","4. Listar alumnos","9. Salir"}};
+    eMenu menuPrincipal = {
+                            5, //cantidad de opciones
+                            {1,2,3,4,9}, //codigos
+                            {"1. Alta","2. Baja","3. Modificaciàn","4. Listar alumnos","9. Salir"}, //descripciones
+                            {"+--------------------+\n| GESTION DE ALUMNOS |\n+--------------------+"} //titulo del menu
+                           };
     eAlumno listadoAlumnos[CANT_ALUMNOS] = {};
     int opcion;
     char salirDelPrograma = 'N';
@@ -22,7 +27,8 @@ int main()
     do
     {
         ejecutarEnConsola(LIMPIAR_PANTALLA);
-        printf(TITULO_PROGRAMA);
+
+        ;
 
         opcion = pedirOpcion(menuPrincipal);
         switch(opcion)

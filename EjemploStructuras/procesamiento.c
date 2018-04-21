@@ -105,7 +105,7 @@ void procesarAlta(eAlumno listadoAlumnos[])
     if(posicion != -1)
     {
         ejecutarEnConsola(LIMPIAR_PANTALLA);
-        escribirEnPantalla("\n ALTA DE ALUMNO");
+        escribirEnPantalla("+----------------+\n| ALTA DE ALUMNO |\n+----------------+");
         alumno = pedirAlumno();
         mostrarAlumno(alumno);
 
@@ -132,7 +132,7 @@ void procesarAlta(eAlumno listadoAlumnos[])
 void procesarMostrarListado(eAlumno listadoAlumnos[])
 {
     ejecutarEnConsola(LIMPIAR_PANTALLA);
-    escribirEnPantalla("LISTADO DE ALUMNOS");
+    escribirEnPantalla("+--------------------+\n| LISTADO DE ALUMNOS |\n+--------------------+");
     mostrarListadoAlumnos(listadoAlumnos);
     ejecutarEnConsola(HACER_PAUSA);
 }

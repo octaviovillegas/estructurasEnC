@@ -5,6 +5,8 @@
 void mostrarMenu(const eMenu menu)
 {
     int i;
+
+    printf("\n%s", menu.titulo);
     for(i=0 ; i < menu.cantOpciones ; i++)
     {
         printf("\n%s", menu.descripciones[i]);
