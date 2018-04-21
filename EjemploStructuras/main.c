@@ -3,35 +3,47 @@
 #include "estructuras.h"
 #include "funciones_generales.h"
 #include "procesamiento.h"
+#include "menus.h"
 
+/**
++para el martes 24 de abril
++1-completar las funciones faltantes con sus implementaciones
++2- hacer un menu de opciones (en el main o en funciones)
++3- Terminar el alta baja y modificacion de un alumno del listado
++*/
 
 int main()
 {
+    eMenu menuPrincipal = {5,{1,2,3,4,9},{"1. Alta","2. Baja","3. Modificaciàn","4. Listar alumnos","9. Salir"}};
     eAlumno listadoAlumnos[CANT_ALUMNOS] = {};
-    eAlumno alumno;
-    int posicion;
+    int opcion;
     char salirDelPrograma = 'N';
 
     do
     {
-        alumno = pedirAlumno();
-
-        posicion = buscarLugarLibre(listadoAlumnos);
-        if(posicion != -1)
-        {
-            listadoAlumnos[posicion] = alumno;
-        }
-
         ejecutarEnConsola(LIMPIAR_PANTALLA);
-        printf("\nANTES DE ORDENAR:");
-        mostrarListadoAlumnos(listadoAlumnos);
+        printf(TITULO_PROGRAMA);
 
-        ordenarPorPromedio(listadoAlumnos);
-        printf("\n\nDESPUES DE ORDENAR:");
-        mostrarListadoAlumnos(listadoAlumnos);
-        ejecutarEnConsola(HACER_PAUSA);
-
-        salirDelPrograma = pedirConfirmacion("Desea salir del programa?");
+        opcion = pedirOpcion(menuPrincipal);
+        switch(opcion)
+        {
+            case 1:
+                escribirEnPantalla("procesarAlta(listadoAlumnos)");
+                break;
+            case 2:
+                escribirEnPantalla("procesarBaja(listadoAlumnos)");
+                break;
+            case 3:
+                escribirEnPantalla("procesarModificacion(listadoAlumnos)");
+                break;
+            case 4:
+                mostrarListadoAlumnos(listadoAlumnos);
+                ejecutarEnConsola(HACER_PAUSA);
+                break;
+            case 9:
+                salirDelPrograma = pedirConfirmacion("Desea salir del programa?");
+                break;
+        }
     }
     while(salirDelPrograma == 'N');
 

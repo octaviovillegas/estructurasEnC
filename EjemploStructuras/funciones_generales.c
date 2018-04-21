@@ -7,11 +7,11 @@ void ejecutarEnConsola(const char *lineaDeComando)
     system(lineaDeComando);
 }
 
-char pedirConfirmacion(const char *texto)
+char pedirConfirmacion(const char *mensajeAlUsuario)
 {
     char retorno;
 
-    printf("\n%s (S/N): ", texto);
+    printf("\n%s (S/N): ", mensajeAlUsuario);
     fflush(stdin);
     scanf("%c", &retorno);
 
@@ -77,4 +77,26 @@ float calcularPromedio(float numero1, float numero2)
     retorno = (numero1 + numero2) / 2;
 
     return retorno;
+}
+
+int buscarEnArrayInt(const int buscar, const int array[], const int cant)
+{
+    int retorno = -1;
+    int i;
+
+    for(i=0 ; i<cant ; i++)
+    {
+        if(array[i] == buscar)
+        {
+            retorno = i;
+            break;
+        }
+    }
+
+    return retorno;
+}
+
+void escribirEnPantalla(const char *texto)
+{
+    printf("\n%s", texto);
 }

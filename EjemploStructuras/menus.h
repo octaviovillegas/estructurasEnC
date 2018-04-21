@@ -1,0 +1,16 @@
+/** \brief muestra en pantalla un tipo de dato menu
+ *
+ * \param menu const eMenu: el menu a mostrar
+ * \return void
+ *
+ */
+void mostrarMenu(const eMenu menu);
+
+
+/** \brief pide al usuario que elija una opcion de menu recibido como parametro
+ *
+ * \param menu const eMenu: el menu de opciones a mostrar al usuario para pedir y validar la opcion seleccionada
+ * \return int: el numero de opcion validada
+ *
+ */
+int pedirOpcion(const eMenu menu);

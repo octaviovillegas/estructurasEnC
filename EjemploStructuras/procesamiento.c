@@ -25,8 +25,6 @@ eAlumno pedirAlumno()
 {
     eAlumno retorno;
 
-    ejecutarEnConsola(LIMPIAR_PANTALLA);
-
     retorno.legajo = pedirInt("\nIngrese legajo:");
 
     pedirString(&(*retorno.nombre), "\nIngrese nombre:");
@@ -95,4 +93,38 @@ void ordenarPorPromedio(eAlumno listadoAlumnos[])
         }
     }
 
+}
+
+void procesarAlta(eAlumno listadoAlumnos[])
+{
+    eAlumno alumno;
+    char confirmacion;
+    int posicion;
+
+    posicion = buscarLugarLibre(listadoAlumnos);
+    if(posicion != -1)
+    {
+        ejecutarEnConsola(LIMPIAR_PANTALLA);
+        escribirEnPantalla("\n ALTA DE ALUMNO");
+        alumno = pedirAlumno();
+        mostrarAlumno(alumno);
+
+        confirmacion = pedirConfirmacion("Confirma que los datos ingresados son correctos?");
+
+        if(confirmacion == 'S')
+        {
+            listadoAlumnos[posicion] = alumno;
+            ordenarPorPromedio(listadoAlumnos);
+            escribirEnPantalla("\nEl alumno se dio de alta.");
+        }
+        else
+        {
+            escribirEnPantalla("\nSe cancelà la gestiàn.");
+        }
+    }
+    else
+    {
+        escribirEnPantalla("\nNo hay m s lugares disponibles para altas de alumnos.");
+    }
+    ejecutarEnConsola(HACER_PAUSA);
 }

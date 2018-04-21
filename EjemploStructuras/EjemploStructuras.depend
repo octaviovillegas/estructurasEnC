@@ -22,3 +22,20 @@
 	"estructuras.h"
 	"funciones_generales.h"
 
+1524327553 source:c:\projects\estructurasenc\ejemplostructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estructuras.h"
+	"funciones_generales.h"
+	"procesamiento.h"
+
+1524327463 c:\projects\estructurasenc\ejemplostructuras\estructuras.h
+
+1524327463 c:\projects\estructurasenc\ejemplostructuras\funciones_generales.h
+
+1524327463 c:\projects\estructurasenc\ejemplostructuras\procesamiento.h
+
+1524327463 source:c:\projects\estructurasenc\ejemplostructuras\funciones_generales.c
+	<stdio.h>
+	<stdlib.h>
+
