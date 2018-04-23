@@ -5,13 +5,6 @@
 #include "procesamiento.h"
 #include "menus.h"
 
-/**
-+para el martes 24 de abril
-+1-completar las funciones faltantes con sus implementaciones
-+2- hacer un menu de opciones (en el main o en funciones)
-+3- Terminar el alta baja y modificacion de un alumno del listado
-+*/
-
 int main()
 {
     eMenu menuPrincipal = {
@@ -28,8 +21,6 @@ int main()
     {
         ejecutarEnConsola(LIMPIAR_PANTALLA);
 
-        ;
-
         opcion = pedirOpcion(menuPrincipal);
         switch(opcion)
         {
@@ -40,8 +31,7 @@ int main()
                 procesarBaja(listadoAlumnos);
                 break;
             case 3:
-                escribirEnPantalla("procesarModificacion(listadoAlumnos)");
-                ejecutarEnConsola(HACER_PAUSA);
+                procesarModificacion(listadoAlumnos);
                 break;
             case 4:
                 procesarMostrarListado(listadoAlumnos);

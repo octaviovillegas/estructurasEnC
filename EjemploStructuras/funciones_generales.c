@@ -97,7 +97,7 @@ int buscarEnArrayInt(const int buscar, const int array[], const int cant)
     return retorno;
 }
 
-void escribirEnPantalla(const char *texto)
+void imprimirEnPantalla(const char *texto)
 {
     printf("\n%s", texto);
 }

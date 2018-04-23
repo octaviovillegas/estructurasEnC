@@ -75,4 +75,4 @@ int buscarEnArrayInt(const int, const int[], const int);
  * \return void
  *
  */
-void escribirEnPantalla(const char *);
+void imprimirEnPantalla(const char *);

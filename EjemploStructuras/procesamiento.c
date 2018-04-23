@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "estructuras.h"
 #include "funciones_generales.h"
+#include "menus.h"
 
 void mostrarAlumno(const eAlumno alumno)
 {
@@ -21,17 +22,49 @@ void mostrarListadoAlumnos(const eAlumno listadoAlumnos[])
     }
 }
 
+int pedirLegajo()
+{
+    //por ahora retorna el entero
+    //luego puede agregarse validacion
+    int retorno;
+    retorno = pedirInt("\nIngrese legajo: ");
+    return retorno;
+}
+
+int pedirNota(const int nroDeNota)
+{
+    //por ahora retorna el entero
+    //luego puede agregarse validacion
+    int retorno;
+
+    if(nroDeNota == 1)
+    {
+        retorno = pedirInt("Ingrese nota 1: ");
+    }
+    else
+    {
+        retorno = pedirInt("Ingrese nota 2: ");
+    }
+
+    return retorno;
+}
+
+void pedirNombre(char *retorno)
+{
+    pedirString(retorno, "Ingrese nombre: ");
+}
+
 eAlumno pedirAlumno()
 {
     eAlumno retorno;
 
-    retorno.legajo = pedirInt("\nIngrese legajo:");
+    retorno.legajo = pedirLegajo();
 
-    pedirString(&(*retorno.nombre), "Ingrese nombre:");
+    pedirNombre((char *)&(retorno.nombre));
 
-    retorno.nota1 = pedirInt("Ingrese nota1:");
+    retorno.nota1 = pedirNota(1);
 
-    retorno.nota2 = pedirInt("Ingrese nota2:");
+    retorno.nota2 = pedirNota(2);
 
     retorno.promedio = calcularPromedio(retorno.nota1, retorno.nota2);
 
@@ -105,7 +138,7 @@ void procesarAlta(eAlumno listadoAlumnos[])
     if(posicion != -1)
     {
         ejecutarEnConsola(LIMPIAR_PANTALLA);
-        escribirEnPantalla("+----------------+\n| ALTA DE ALUMNO |\n+----------------+");
+        imprimirEnPantalla("+----------------+\n| ALTA DE ALUMNO |\n+----------------+");
         alumno = pedirAlumno();
         mostrarAlumno(alumno);
 
@@ -115,16 +148,16 @@ void procesarAlta(eAlumno listadoAlumnos[])
         {
             listadoAlumnos[posicion] = alumno;
             ordenarPorPromedio(listadoAlumnos);
-            escribirEnPantalla("\nEl alumno se dio de alta.");
+            imprimirEnPantalla("\nEl alumno se dio de alta.");
         }
         else
         {
-            escribirEnPantalla("\nSe cancelà la gestiàn.");
+            imprimirEnPantalla("\nSe cancelà la gestiàn.");
         }
     }
     else
     {
-        escribirEnPantalla("\nNo hay m s lugares disponibles para altas de alumnos.");
+        imprimirEnPantalla("\nNo hay m s lugares disponibles para altas de alumnos.");
     }
     ejecutarEnConsola(HACER_PAUSA);
 }
@@ -132,7 +165,7 @@ void procesarAlta(eAlumno listadoAlumnos[])
 void procesarMostrarListado(eAlumno listadoAlumnos[])
 {
     ejecutarEnConsola(LIMPIAR_PANTALLA);
-    escribirEnPantalla("+--------------------+\n| LISTADO DE ALUMNOS |\n+--------------------+");
+    imprimirEnPantalla("+--------------------+\n| LISTADO DE ALUMNOS |\n+--------------------+");
     mostrarListadoAlumnos(listadoAlumnos);
     ejecutarEnConsola(HACER_PAUSA);
 }
@@ -144,31 +177,137 @@ void procesarBaja(eAlumno listadoAlumnos[])
     int posicion;
 
     ejecutarEnConsola(LIMPIAR_PANTALLA);
-    escribirEnPantalla("+----------------+\n| BAJA DE ALUMNO |\n+----------------+");
+    imprimirEnPantalla("+----------------+\n| BAJA DE ALUMNO |\n+----------------+");
 
     alumnoBuscar.legajo = pedirInt("\n\nIngrese el legajo del alumno a dar de baja: ");
 
     posicion = buscarAlumno(alumnoBuscar, listadoAlumnos);
-
     if(posicion != -1)
     {
-        mostrarAlumno(listadoAlumnos[posicion]);
-
-        confirmacion = pedirConfirmacion("Confirma que desea dar de baja dicho alumno?");
-
-        if(confirmacion == 'S')
+        if(listadoAlumnos[posicion].estado == 0)
         {
-            listadoAlumnos[posicion].estado = 0;
-            escribirEnPantalla("\nEl alumno se dio de baja.");
+            imprimirEnPantalla("\nEl alumno ya se encontraba dado de baja");
         }
         else
         {
-            escribirEnPantalla("\nSe cancelà la gestiàn.");
+            mostrarAlumno(listadoAlumnos[posicion]);
+
+            confirmacion = pedirConfirmacion("Confirma que desea dar de baja dicho alumno?");
+
+            if(confirmacion == 'S')
+            {
+                listadoAlumnos[posicion].estado = 0;
+                imprimirEnPantalla("\nEl alumno se dio de baja.");
+            }
+            else
+            {
+                imprimirEnPantalla("\nSe cancelà la gestiàn.");
+            }
         }
     }
     else
     {
-        escribirEnPantalla("\nEl legajo del alumno ingresado por parametro no existe.");
+        imprimirEnPantalla("\nEl legajo del alumno ingresado por par metro no existe.");
+    }
+    ejecutarEnConsola(HACER_PAUSA);
+}
+
+void modificarAlumno(eAlumno *alumno)
+{
+    eMenu menuModificar = {
+                            5, //cantidad de opciones
+                            {1,2,3,4,5}, //codigos
+                            {"1. Legajo","2. Nombre","3. Nota 1","4. Nota 2","5. Rehabilitar"}, //descripciones
+                            {"\nQu‚ desea modificar?"} //titulo del menu
+                           };
+    int opcion;
+
+    ejecutarEnConsola(LIMPIAR_PANTALLA);
+    imprimirEnPantalla("+--------------------+\n| MODIFICANDO ALUMNO |\n+--------------------+\nDatos del alumno a modificar:");
+
+    mostrarAlumno(*alumno);
+
+    if(alumno->estado == 0)
+    {
+        imprimirEnPantalla("El alumno se encuentra dado de baja.");
+    }
+
+    opcion = pedirOpcion(menuModificar);
+    switch(opcion)
+    {
+        case 1:
+            alumno->legajo = pedirLegajo();
+            break;
+        case 2:
+            pedirNombre((char *)&alumno->nombre);
+            break;
+        case 3:
+            alumno->nota1 = pedirNota(1);
+            break;
+        case 4:
+            alumno->nota2 = pedirNota(2);
+            break;
+        case 5:
+            alumno->estado = 1;
+            break;
+    }
+}
+
+void procesarModificacion(eAlumno listadoAlumnos[])
+{
+    eAlumno alumnoModificar;
+    char confirmacion;
+    int posicion;
+
+    ejecutarEnConsola(LIMPIAR_PANTALLA);
+    imprimirEnPantalla("+------------------------+\n| MODIFICACION DE ALUMNO |\n+------------------------+");
+
+    alumnoModificar.legajo = pedirInt("\n\nIngrese el legajo del alumno a modificar: ");
+
+    posicion = buscarAlumno(alumnoModificar, listadoAlumnos);
+    if(posicion != -1)
+    {
+        alumnoModificar = listadoAlumnos[posicion];
+
+        modificarAlumno(&alumnoModificar);
+
+        if(listadoAlumnos[posicion].estado != alumnoModificar.estado)
+        {
+            confirmacion = pedirConfirmacion("Confirma que desea rehabilitar al alumno?");
+        }
+        else
+        {
+            if(listadoAlumnos[posicion].nota1 != alumnoModificar.nota1 ||
+               listadoAlumnos[posicion].nota2 != alumnoModificar.nota2)
+            {
+                alumnoModificar.promedio = calcularPromedio(alumnoModificar.nota1, alumnoModificar.nota2);
+            }
+
+            ejecutarEnConsola(LIMPIAR_PANTALLA);
+
+            imprimirEnPantalla("Alumno actual:");
+            mostrarAlumno(listadoAlumnos[posicion]);
+
+            imprimirEnPantalla("Alumno nuevo:");
+            mostrarAlumno(alumnoModificar);
+
+            confirmacion = pedirConfirmacion("Confirma que los datos ingresados son correctos?");
+        }
+
+        if(confirmacion == 'S')
+        {
+            listadoAlumnos[posicion] = alumnoModificar;
+            ordenarPorPromedio(listadoAlumnos);
+            imprimirEnPantalla("\nEl alumno se modificà.");
+        }
+        else
+        {
+            imprimirEnPantalla("\nSe cancelà la gestiàn.");
+        }
+    }
+    else
+    {
+        imprimirEnPantalla("\nEl legajo del alumno ingresado por par metro no existe.");
     }
     ejecutarEnConsola(HACER_PAUSA);
 }

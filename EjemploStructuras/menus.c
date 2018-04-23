@@ -19,7 +19,6 @@ int pedirOpcion(const eMenu menu)
     int retorno;
     int i;
 
-    ejecutarEnConsola(LIMPIAR_PANTALLA);
     mostrarMenu(menu);
     printf("\nElija un n£mero de opci¢n del men£: ");
     scanf("%d", &retorno);

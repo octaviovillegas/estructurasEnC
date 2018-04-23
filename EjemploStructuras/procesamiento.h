@@ -16,6 +16,32 @@ void mostrarAlumno(const eAlumno);
 void mostrarListadoAlumnos(const eAlumno[]);
 
 
+/** \brief pide al usuario ingresar un legajo y devuelve su valor.
+ *
+ * \return int: el legajo ingresado
+ *
+ */
+int pedirLegajo();
+
+
+/** \brief pide al usuario que ingrese la nota uno o dos segun parametro
+ *
+ * \param nroDeNota const int: el numero de nota para mostrar pedido en pantalla
+ * \return int: el numero de nota
+ *
+ */
+int pedirNota(const int);
+
+
+/** \brief pide al usuario que ingrese un nombre
+ *
+ * \param retorno char*: devuelve el nombre ingresado en el parametro
+ * \return void
+ *
+ */
+void pedirNombre(char *retorno);
+
+
 /** \brief pide al usuario el ingreso de datos de un tipo alumno y retorna una estructura cargada
  *
  * \return eAlumno
@@ -78,3 +104,21 @@ void procesarMostrarListado(eAlumno[]);
  *
  */
 void procesarBaja(eAlumno[]);
+
+
+/** \brief recibe por referencia un alumno y solicita al usuario las modificaciones que desea realizar al registro
+ *
+ * \param alumno eAlumno*: el registro del alumno a modificar
+ * \return void
+ *
+ */
+void modificarAlumno(eAlumno *);
+
+
+/** \brief se encarga de toda la logica de dar de modificar un alumno del array recibido por parametro.
+ *
+ * \param listadoAlumnos[] eAlumno: array de alumnos
+ * \return void
+ *
+ */
+void procesarModificacion(eAlumno[]);
