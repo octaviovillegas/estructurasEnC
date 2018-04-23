@@ -68,3 +68,13 @@ void procesarAlta(eAlumno[]);
  *
  */
 void procesarMostrarListado(eAlumno[]);
+
+
+/** \brief se encarga de toda la logica de dar de baja un alumno del array recibido por parametro.
+ *         solicita al usuario que ingrese el legajo y lo valida
+ *
+ * \param listadoAlumnos[] eAlumno: array de alumnos
+ * \return void
+ *
+ */
+void procesarBaja(eAlumno[]);

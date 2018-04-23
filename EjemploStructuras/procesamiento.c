@@ -136,3 +136,39 @@ void procesarMostrarListado(eAlumno listadoAlumnos[])
     mostrarListadoAlumnos(listadoAlumnos);
     ejecutarEnConsola(HACER_PAUSA);
 }
+
+void procesarBaja(eAlumno listadoAlumnos[])
+{
+    eAlumno alumnoBuscar;
+    char confirmacion;
+    int posicion;
+
+    ejecutarEnConsola(LIMPIAR_PANTALLA);
+    escribirEnPantalla("+----------------+\n| BAJA DE ALUMNO |\n+----------------+");
+
+    alumnoBuscar.legajo = pedirInt("\n\nIngrese el legajo del alumno a dar de baja: ");
+
+    posicion = buscarAlumno(alumnoBuscar, listadoAlumnos);
+
+    if(posicion != -1)
+    {
+        mostrarAlumno(listadoAlumnos[posicion]);
+
+        confirmacion = pedirConfirmacion("Confirma que desea dar de baja dicho alumno?");
+
+        if(confirmacion == 'S')
+        {
+            listadoAlumnos[posicion].estado = 0;
+            escribirEnPantalla("\nEl alumno se dio de baja.");
+        }
+        else
+        {
+            escribirEnPantalla("\nSe cancelà la gestiàn.");
+        }
+    }
+    else
+    {
+        escribirEnPantalla("\nEl legajo del alumno ingresado por parametro no existe.");
+    }
+    ejecutarEnConsola(HACER_PAUSA);
+}

@@ -37,8 +37,7 @@ int main()
                 procesarAlta(listadoAlumnos);
                 break;
             case 2:
-                escribirEnPantalla("procesarBaja(listadoAlumnos)");
-                ejecutarEnConsola(HACER_PAUSA);
+                procesarBaja(listadoAlumnos);
                 break;
             case 3:
                 escribirEnPantalla("procesarModificacion(listadoAlumnos)");
