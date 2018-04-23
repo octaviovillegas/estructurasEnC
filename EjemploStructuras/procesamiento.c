@@ -215,9 +215,9 @@ void procesarBaja(eAlumno listadoAlumnos[])
 void modificarAlumno(eAlumno *alumno)
 {
     eMenu menuModificar = {
-                            5, //cantidad de opciones
-                            {1,2,3,4,5}, //codigos
-                            {"1. Legajo","2. Nombre","3. Nota 1","4. Nota 2","5. Rehabilitar"}, //descripciones
+                            6, //cantidad de opciones
+                            {1,2,3,4,5,9}, //codigos
+                            {"1. Legajo","2. Nombre","3. Nota 1","4. Nota 2","5. Rehabilitar","9. Cancelar"}, //descripciones
                             {"\nQu‚ desea modificar?"} //titulo del menu
                            };
     int opcion;
@@ -250,11 +250,14 @@ void modificarAlumno(eAlumno *alumno)
         case 5:
             alumno->estado = 1;
             break;
+        case 9:
+            break;
     }
 }
 
 void procesarModificacion(eAlumno listadoAlumnos[])
 {
+    //bug: permite rehabilitar los legajos en cero
     eAlumno alumnoModificar;
     char confirmacion;
     int posicion;
