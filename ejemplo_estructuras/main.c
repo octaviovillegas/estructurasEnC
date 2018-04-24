@@ -15,7 +15,14 @@ typedef struct
 
 }eAlumnos;
 
-void pedirAlumno ();
+alumno pedirAlumno(void);
+void mostrarAlumno(alumno );
+int buscarLugarLibre(alumno[],int);
+int buscarIndiceDelAlumno(alumno listado[],int legajo,int cantidad);
+int insertarAlumnoEnLaLista(alumno[]);
+void mostrarListado(alumno listado[],int cantidad);
+float calcularPromedio(int ,int);
+void ordenarPorPromedio(alumno[],int cantidad);
 
 int main()
 {
@@ -29,6 +36,8 @@ int main()
         listadoDelMain[i].estado=0;
     }//esto sirve para buscar el lugar libre
 
+    ordenarPorPromedio(listadoDelMain,TAM);
+    mostrarListado(listadoDelMain,TAM);
 
     return 0;
 }
@@ -114,5 +123,22 @@ borrarAlumno()
 
 }
 
+void ordenarPorPromedio(alumno[],int cantidad)
+{
+    int i;
+    for(i=0;i<cantidad;i++)
+    {
+        listado[i].legajo=i*9;
+    }
+}
+
+void mostrarListado(alumno listado[],int cantidad)
+{
+    int i;
+    for(i=0;i<cantidad;i++)
+    {
+       mostrarAlumno( listado[i]);
+    }
+}
 
 
