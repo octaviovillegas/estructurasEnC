@@ -55,3 +55,36 @@
 	"funciones_generales.h"
 	"menus.h"
 
+1524498476 source:d:\github\estructurasenc\ejemplostructuras\funciones_generales.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1524498476 source:d:\github\estructurasenc\ejemplostructuras\menus.c
+	<stdio.h>
+	"estructuras.h"
+	"funciones_generales.h"
+
+1524498476 d:\github\estructurasenc\ejemplostructuras\estructuras.h
+
+1524498476 d:\github\estructurasenc\ejemplostructuras\funciones_generales.h
+
+1524498476 source:d:\github\estructurasenc\ejemplostructuras\procesamiento.c
+	<stdio.h>
+	<stdlib.h>
+	"estructuras.h"
+	"funciones_generales.h"
+	"menus.h"
+
+1524498476 d:\github\estructurasenc\ejemplostructuras\menus.h
+
+1524605271 source:d:\github\estructurasenc\ejemplostructuras\main.c
+	<stdio.h>
+	<stdlib.h>
+	"estructuras.h"
+	"funciones_generales.h"
+	"procesamiento.h"
+	"menus.h"
+
+1524498476 d:\github\estructurasenc\ejemplostructuras\procesamiento.h
+

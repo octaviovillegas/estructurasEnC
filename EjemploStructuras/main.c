@@ -16,7 +16,18 @@ int main()
     eAlumno listadoAlumnos[CANT_ALUMNOS] = {};
     int opcion;
     char salirDelPrograma = 'N';
+    //procesarMostrarListado(listadoAlumnos);
 
+    int j[]={1,2,3,5,7};
+    int i;
+    for(i=0 ; i<CANT_ALUMNOS ; i++)
+    {
+        mostrarAlumno(listadoAlumnos[i]);
+        printf("j[i]: %d",j[i]);
+    }
+    ejecutarEnConsola(HACER_PAUSA);
+
+/*
     do
     {
         ejecutarEnConsola(LIMPIAR_PANTALLA);
@@ -42,6 +53,6 @@ int main()
         }
     }
     while(salirDelPrograma == 'N');
-
+*/
     return 0;
 }
